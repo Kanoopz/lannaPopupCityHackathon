@@ -225,7 +225,6 @@ function App()
             connected ?
             <>
               <h1>userConnected</h1>
-              <button onClick={verifyProofTx}>executeTx</button>
             </>
             :
             <>
