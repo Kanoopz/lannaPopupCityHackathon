@@ -11,7 +11,7 @@ function App()
   ////////////////////////////////////////////
   //  smartContractSetUpVariables          ///
   ////////////////////////////////////////////
-  let smartContractAddress = "0x7F0A2c7f63Ea8a43298A819514da56fb5B90dA91";
+  let smartContractAddress = "0xCBF7B82C1a919B1546214E7cA6F02970df9F29E9";
   let smartContractAbi = [
     {
       "inputs": [
@@ -59,6 +59,64 @@ function App()
       "type": "event"
     },
     {
+      "inputs": [],
+      "name": "myNullifierHash",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "myProof",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "myRoot",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "mySignal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "uint256",
@@ -82,6 +140,62 @@ function App()
         }
       ],
       "name": "verifyAndExecute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "signal",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "root",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nullifierHash",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256[8]",
+          "name": "proof",
+          "type": "uint256[8]"
+        }
+      ],
+      "name": "verifyAndExecuteThree",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "signal",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "root",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nullifierHash",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256[8]",
+          "name": "proof",
+          "type": "uint256[8]"
+        }
+      ],
+      "name": "verifyAndExecuteTwo",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -135,6 +249,15 @@ function App()
     console.log(signer);
   }
 
+  async function verifyProofTx()
+  {
+    // const tx = await smartContractInstance.connect(signer).verifyAndExecute(address, root, nullifierHash, unpackedProof);
+    const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, rootParam, nullifierHashParam, proofParam);
+    const txReceipt = await tx.wait();
+    console.log("TX_RECEIPT:");
+    console.log(txReceipt);
+  }
+
   ////////////////////////////////////////////
   //  ethersUtils                          ///
   ////////////////////////////////////////////
@@ -147,6 +270,7 @@ function App()
   {
     console.log("");
 
+    console.log("hello!!");
     console.log(proof);
 
     const root = proof.merkle_root;
@@ -162,24 +286,39 @@ function App()
     let signal = 1;
     
     console.log("SIGNAL:");
+    // console.log(typeof(address));
+    // console.log(address);
     console.log(typeof(signal));
     console.log(signal);
-
     console.log("ROOT");
     console.log(typeof(root));
     console.log(root);
-
     console.log("NULLIFIER_HASH");
     console.log(typeof(nullifierHash));
     console.log(nullifierHash);
-
     console.log("PROOF");
     console.log(typeof(unpackedProof));
     console.log(unpackedProof);
 
     console.log("");
 
-    const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, root, nullifierHash, unpackedProof);
+    let i;
+    let proofArray = [];
+    
+    for (i = 0 ; i < unpackedProof.length ; i++)
+    {
+      console.log(unpackedProof[i]);
+      console.log(unpackedProof[i].toString());
+
+      proofArray.push(unpackedProof[i].toString());
+    }
+
+    setProofParam(proofArray);
+    console.log(proofArray);
+
+
+    // const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, rootParam, nullifierHashParam, proofParam);
+    // const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, root, nullifierHash, unpackedProof);
 
     console.log("TX:");
     console.log(tx);

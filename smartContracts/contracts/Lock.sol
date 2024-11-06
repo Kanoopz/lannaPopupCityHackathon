@@ -49,6 +49,8 @@ contract Lock
 	/// @dev A placeholder event that is emitted when a user successfully verifies with World ID
 	event Verified(uint256 nullifierHash);
 
+
+
 	/// @param _worldId The WorldID router that will verify the proofs
 	/// @param _appId The World ID app ID
 	/// @param _actionId The World ID action ID
@@ -64,7 +66,7 @@ contract Lock
 	/// @param nullifierHash The nullifier hash for this proof, preventing double signaling (returned by the JS widget).
 	/// @param proof The zero-knowledge proof that demonstrates the claimer is registered with World ID (returned by the JS widget).
 	/// @dev Feel free to rename this method however you want! We've used `claim`, `verify` or `execute` in the past.
-	function verifyAndExecute(address signal, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) public {
+	function verifyAndExecute(uint signal, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) public {
 		// First, we make sure this person hasn't done this before
 		if (nullifierHashes[nullifierHash]) revert DuplicateNullifier(nullifierHash);
 

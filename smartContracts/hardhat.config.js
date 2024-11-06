@@ -51,6 +51,11 @@ module.exports = {
       url: "https://arb-sepolia.g.alchemy.com/v2/offZMXvXMjPT3Umglb0CN3fuwSJDtZcB",
       accounts: ["0xd046263c0533990c39363b2211811de7d563f9be0d61135fad86db497e2073d5"]
     },
+    opSepolia:
+    {
+      url: "https://optimism-sepolia.infura.io/v3/408559c55ba7479b9f3adee094af9d80",
+      accounts: ["0xd046263c0533990c39363b2211811de7d563f9be0d61135fad86db497e2073d5"]
+    },
     fuji:
     {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
