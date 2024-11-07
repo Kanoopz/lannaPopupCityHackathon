@@ -22,7 +22,7 @@ interface IWorldID {
 	) external view;
 }
 
-contract Lock 
+contract WordlIdSample 
 {
     using ByteHasher for bytes;
 
@@ -66,15 +66,21 @@ contract Lock
 	/// @param nullifierHash The nullifier hash for this proof, preventing double signaling (returned by the JS widget).
 	/// @param proof The zero-knowledge proof that demonstrates the claimer is registered with World ID (returned by the JS widget).
 	/// @dev Feel free to rename this method however you want! We've used `claim`, `verify` or `execute` in the past.
-	function verifyAndExecute(uint signal, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) public {
+	function verifyAndExecute(address signal, uint256 root, uint256 nullifierHash, uint256[8] calldata proof) public {
+		uint256 uintSignal = uint256(uint160(signal));
+
+
+
 		// First, we make sure this person hasn't done this before
 		if (nullifierHashes[nullifierHash]) revert DuplicateNullifier(nullifierHash);
 
 		// We now verify the provided proof is valid and the user is verified by World ID
 		worldId.verifyProof(
 			root,
-			groupId,
-			abi.encodePacked(signal).hashToField(),
+			// groupId,
+			1,
+			// abi.encodePacked(uintSignal).hashToField(),
+			uintSignal,
 			nullifierHash,
 			externalNullifier,
 			proof

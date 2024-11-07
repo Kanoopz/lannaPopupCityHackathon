@@ -43,7 +43,7 @@ module.exports = {
     }, 
     sepolia:
     {
-      url: "https://rpc.sepolia.org/",
+      url: "https://sepolia.infura.io/v3/408559c55ba7479b9f3adee094af9d80",
       accounts: ["0xd046263c0533990c39363b2211811de7d563f9be0d61135fad86db497e2073d5"]
     },
     arbSepolia:

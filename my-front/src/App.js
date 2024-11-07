@@ -11,7 +11,7 @@ function App()
   ////////////////////////////////////////////
   //  smartContractSetUpVariables          ///
   ////////////////////////////////////////////
-  let smartContractAddress = "0x7F0A2c7f63Ea8a43298A819514da56fb5B90dA91";
+  let smartContractAddress = "0x02Dd1F5d01B188F9c2f4b61919b9D61392b1a7E1";
   let smartContractAbi = [
     {
       "inputs": [
@@ -61,9 +61,9 @@ function App()
     {
       "inputs": [
         {
-          "internalType": "uint256",
+          "internalType": "address",
           "name": "signal",
-          "type": "uint256"
+          "type": "address"
         },
         {
           "internalType": "uint256",
@@ -159,7 +159,8 @@ function App()
 
     console.log("");
 
-    let signal = 1;
+    // let signal = 1;
+    let signal = address;
     
     console.log("SIGNAL:");
     console.log(typeof(signal));
@@ -179,13 +180,13 @@ function App()
 
     console.log("");
 
-    const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, root, nullifierHash, unpackedProof);
+    // const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, root, nullifierHash, unpackedProof, {gasLimit: 5000000});
 
-    console.log("TX:");
-    console.log(tx);
-    const txReceipt = await tx.wait();
-    console.log("TX_RECEIPT:");
-    console.log(txReceipt);
+    // console.log("TX:");
+    // console.log(tx);
+    // const txReceipt = await tx.wait();
+    // console.log("TX_RECEIPT:");
+    // console.log(txReceipt);
   };
 
   function getUnpackedProof(proof)
@@ -193,11 +194,24 @@ function App()
     return (abi.decode(['uint256[8]'], proof)[0]);
   }
 
-  const onSuccess = () => 
+  const onSuccess = async () =>
   {
     console.log("");
 
     console.log("Success");
+
+
+    // const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, root, nullifierHash, unpackedProof, {gasLimit: 5000000});
+    // const tx = await smartContractInstance.connect(signer).verifyProof(rootParam, 1, 1, nullifierHashParam, nullifierHashParam, proofParam, {gasLimit: 5000000});
+    const tx = await smartContractInstance.connect(signer).verifyAndExecute(address, rootParam, nullifierHashParam, proofParam, {gasLimit: 10000000});
+    // verifyAndExecute(address, rootParam, nullifierHashParam, proofParam, {gasLimit: 5000000});
+
+
+    console.log("TX:");
+    console.log(tx);
+    const txReceipt = await tx.wait();
+    console.log("TX_RECEIPT:");
+    console.log(txReceipt);
 
     console.log("");
   };
@@ -243,6 +257,7 @@ function App()
             <IDKitWidget
               app_id="app_staging_95a25cfa91863888a8b00d500786fa53"
               action="verify-humanity"
+              signal={address}
               // On-chain only accepts Orb verifications
               verification_level={VerificationLevel.Orb}
               handleVerify={verifyProof}

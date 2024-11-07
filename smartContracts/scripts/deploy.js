@@ -9,8 +9,15 @@ const {ethers} = require("hardhat");
 
 async function main() 
 {
-  const contractFactory = await ethers.getContractFactory("Lock");
-  const contractInstance = await contractFactory.deploy("0x469449f251692e0779667583026b5a1e99512157", "app_staging_95a25cfa91863888a8b00d500786fa53", "verify-humanity");
+  // const contractFactory = await ethers.getContractFactory("LidoMockup");
+  // // const contractInstance = await contractFactory.deploy("0x469449f251692e0779667583026b5a1e99512157", "app_staging_95a25cfa91863888a8b00d500786fa53", "verify-humanity");
+  // const contractInstance = await contractFactory.deploy("0x92AE8bC6691118760C7f8300DE9320A36c1E21d1", "app_staging_95a25cfa91863888a8b00d500786fa53", "verify-humanity");
+  // // const contractInstance = await contractFactory.deploy();
+  // await contractInstance.waitForDeployment();
+
+  const contractFactory = await ethers.getContractFactory("KarkinosRound");
+  // "0x0eA7dc2797180b7EfbA45C9E0F415FAC0cdE48Ba" "app_staging_95a25cfa91863888a8b00d500786fa53" "verify-humanity" "3"
+  const contractInstance = await contractFactory.deploy("0x0eA7dc2797180b7EfbA45C9E0F415FAC0cdE48Ba", "app_staging_95a25cfa91863888a8b00d500786fa53", "verify-humanity", 3);
   await contractInstance.waitForDeployment();
   
   console.log("Contract deploy at address:", await contractInstance.getAddress());
