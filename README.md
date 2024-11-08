@@ -1,5 +1,3 @@
-https://creative-biscochitos-9fa052.netlify.app/
-
 # lannaPopupCityHackathon
 Repo for the lanna pop up city hackathon project: "./Karkinos".
 
@@ -59,3 +57,6 @@ The used protocols to achieve its mechanism for funding are: lido, renzo and gea
 
 # Presentation: #
 https://www.canva.com/design/DAGV11x8fRY/f7tvj_u8nO8fKBQ30Yst4Q/edit?utm_content=DAGV11x8fRY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+# Working LIVE front to inteact with a funding round: #
+https://creative-biscochitos-9fa052.netlify.app/
