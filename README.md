@@ -12,7 +12,7 @@ With these features implemented, it was possible to enable:
 - Eliminates the need of funding matching mechanism that requires large amounts of money donated from protocols or foundation thanks to the instant staking funding mechanism, which returns funds to every donor at the end of the year.
 - More honest funding rounds thanks to worldID that let just real people to participate and fund limited amount of times in order to prevent farming and avoid multiple address by the same person.
 
-#Basic example:#
+# Basic example: #
 
 
 <img width="768" alt="image" src="https://github.com/user-attachments/assets/f9f40dd0-545f-49ba-8b5d-9c6e3b3fc13d">
