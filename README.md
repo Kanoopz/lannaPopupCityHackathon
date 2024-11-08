@@ -6,6 +6,8 @@ Karkinos ia an antiFarming funding mechanism that uses the future value accrued 
 The basic idea of the funding mechanism is that two entities swap their assets, one buying the liquidStaking and reestaking assets at their future value and use the arbitrage to fund public goods. After one year, this entity gets back the extra value that paid, making it a novel mechanism to fund projects without actually losing capital, making it a perfect model to attract new donors that contribute to build public goods. Another incentive for donors to participate and fund projects, besides not losing capital, is that they actually can earn yield by using the reestaked asset they got into an integrated defi protocol and also apply for points for airdrops.
 
 Basic example:
+
+
 <img width="768" alt="image" src="https://github.com/user-attachments/assets/f9f40dd0-545f-49ba-8b5d-9c6e3b3fc13d">
 
 <img width="767" alt="image" src="https://github.com/user-attachments/assets/bb12cab7-f585-4fbf-8932-891b12009960">
@@ -15,6 +17,8 @@ Basic example:
 <img width="779" alt="image" src="https://github.com/user-attachments/assets/8574f712-f4b9-4c73-aed3-1de29c7502e1">
 
 <img width="779" alt="image" src="https://github.com/user-attachments/assets/b2a9cfeb-f4dc-44bc-b117-36212a4a3eb3">
+
+
 
 
 
