@@ -15,9 +15,8 @@ async function main()
   // // const contractInstance = await contractFactory.deploy();
   // await contractInstance.waitForDeployment();
 
-  const contractFactory = await ethers.getContractFactory("KarkinosRound");
-  // "0x0eA7dc2797180b7EfbA45C9E0F415FAC0cdE48Ba" "app_staging_95a25cfa91863888a8b00d500786fa53" "verify-humanity" "3"
-  const contractInstance = await contractFactory.deploy("0x0eA7dc2797180b7EfbA45C9E0F415FAC0cdE48Ba", "app_staging_95a25cfa91863888a8b00d500786fa53", "verify-humanity", 3);
+  const contractFactory = await ethers.getContractFactory("KarkinosProtocol");
+  const contractInstance = await contractFactory.deploy();
   await contractInstance.waitForDeployment();
   
   console.log("Contract deploy at address:", await contractInstance.getAddress());

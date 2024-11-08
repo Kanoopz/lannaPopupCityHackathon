@@ -33,5 +33,3 @@ GEARBOX defi      8
 - Avoids funding farming thanks to limiting to just one real human without multiple addressb
 - Substitudes capital donations for future staking donations
 - Gives yield to funders
-
-0x92AE8bC6691118760C7f8300DE9320A36c1E21d1
