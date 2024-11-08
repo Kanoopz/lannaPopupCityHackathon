@@ -11,13 +11,13 @@ function App()
   ////////////////////////////////////////////
   //  smartContractSetUpVariables          ///
   ////////////////////////////////////////////
-  let smartContractAddress = "0x02Dd1F5d01B188F9c2f4b61919b9D61392b1a7E1";
+  let smartContractAddress = "0x6801579575dCc6d4f7Aa00F32dd2A02602ce745f";
   let smartContractAbi = [
     {
       "inputs": [
         {
           "internalType": "address",
-          "name": "_worldId",
+          "name": "adminParam",
           "type": "address"
         },
         {
@@ -29,41 +29,96 @@ function App()
           "internalType": "string",
           "name": "_actionId",
           "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fundingQuantityParam",
+          "type": "uint256"
         }
       ],
       "stateMutability": "nonpayable",
       "type": "constructor"
     },
     {
-      "inputs": [
+      "inputs": [],
+      "name": "AvailablePhaseOneFunddedEtherInWei",
+      "outputs": [
         {
           "internalType": "uint256",
-          "name": "nullifierHash",
+          "name": "",
           "type": "uint256"
         }
       ],
-      "name": "DuplicateNullifier",
-      "type": "error"
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      "anonymous": false,
-      "inputs": [
+      "inputs": [],
+      "name": "actualPhase",
+      "outputs": [
         {
-          "indexed": false,
           "internalType": "uint256",
-          "name": "nullifierHash",
+          "name": "",
           "type": "uint256"
         }
       ],
-      "name": "Verified",
-      "type": "event"
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      "inputs": [
+      "inputs": [],
+      "name": "admin",
+      "outputs": [
         {
           "internalType": "address",
-          "name": "signal",
+          "name": "",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "claimPhaseOneFunding",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "endPhase0",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "endPhase1",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "endPhase2",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fundPhaseOne",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "projectIdParam",
+          "type": "uint256"
         },
         {
           "internalType": "uint256",
@@ -81,9 +136,261 @@ function App()
           "type": "uint256[8]"
         }
       ],
-      "name": "verifyAndExecute",
+      "name": "fundPhaseTwo",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gearboxProtocolAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "projectIdParam",
+          "type": "uint256"
+        }
+      ],
+      "name": "getProjectAdmin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "projectIdParam",
+          "type": "uint256"
+        }
+      ],
+      "name": "getProjectData",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "projectId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "projectName",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "projectDescription",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "projectAdmin",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct KarkinosRound.projectData",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "projectIdParam",
+          "type": "uint256"
+        }
+      ],
+      "name": "getProjectDescription",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "projectIdParam",
+          "type": "uint256"
+        }
+      ],
+      "name": "getProjectName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "nullifierHashParam",
+          "type": "uint256"
+        }
+      ],
+      "name": "getWorldIdFunddedCounterForSignal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lidoLiquidStakingAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextPhaseOneFundingOrder",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextPhaseTwoFundingOrder",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextProjectId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "permmitedFundingPerAddress",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "projectIdParam",
+          "type": "uint256"
+        }
+      ],
+      "name": "projectAdminClaimProjectFunding",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "projectNameParam",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "projectDescriptionParam",
+          "type": "string"
+        }
+      ],
+      "name": "registerProject",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renzoReestakingAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalPhaseOneFunddedEtherInWei",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     }
   ];
@@ -97,6 +404,7 @@ function App()
   const [address, setAddress] = useState(null);
   const [signer, setSigner] = useState(null);
   const [connected, setConnected] = useState(false);
+  const [phase, setPhase] = useState(null);
 
   ////////////////////////////////////////////
   //  onChainInteractionFuncs              ///
@@ -104,6 +412,9 @@ function App()
   const [rootParam, setRootParam] = useState(null);
   const [nullifierHashParam, setNullifierHashParam] = useState(null);
   const [proofParam, setProofParam] = useState(null);
+
+  const [projectId, setProjectId] = useState(null);
+  const [amountToFund, setAmountToFund] = useState(null);
 
   ////////////////////////////////////////////
   //  onChainInteractionFuncs              ///
@@ -133,6 +444,12 @@ function App()
 
     console.log("userObject:");
     console.log(signer);
+  }
+
+  async function getData()
+  {
+    let _phase = await smartContractInstance.actualPhase();
+    setPhase(_phase.toString());
   }
 
   ////////////////////////////////////////////
@@ -201,10 +518,9 @@ function App()
     console.log("Success");
 
 
-    // const tx = await smartContractInstance.connect(signer).verifyAndExecute(1, root, nullifierHash, unpackedProof, {gasLimit: 5000000});
-    // const tx = await smartContractInstance.connect(signer).verifyProof(rootParam, 1, 1, nullifierHashParam, nullifierHashParam, proofParam, {gasLimit: 5000000});
-    const tx = await smartContractInstance.connect(signer).verifyAndExecute(address, rootParam, nullifierHashParam, proofParam, {gasLimit: 10000000});
-    // verifyAndExecute(address, rootParam, nullifierHashParam, proofParam, {gasLimit: 5000000});
+    // const tx = await smartContractInstance.connect(signer).verifyAndExecute(address, rootParam, nullifierHashParam, proofParam, {gasLimit: 10000000});
+    // fundPhaseTwo(uint projectIdParam, uint256 root, uint256 nullifierHash, uint256[8] calldata proof)
+    const tx = await smartContractInstance.connect(signer).fundPhaseTwo(projectId, rootParam, nullifierHashParam, proofParam, { value: amountToFund })
 
 
     console.log("TX:");
@@ -216,29 +532,26 @@ function App()
     console.log("");
   };
 
+  getData();
+
+  function consoleLog()
+  {
+    console.log(amountToFund);
+    console.log(projectId);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1 style={{float: 'left', paddingLeft: '2rem'}}>KarkinosProject</h1>
       </header>
 
       <body>
-        <div>
+        <div style={{paddingTop: '1rem'}}>
           {
             connected ?
             <>
-              <h1>userConnected</h1>
+              <h3 style={{float: 'right', paddingRight: '2rem'}}>Connected wallet: {address}</h3>
             </>
             :
             <>
@@ -246,6 +559,25 @@ function App()
               <button onClick={requestAccount}>connect</button>
             </>
           }
+        </div>
+
+        <div style={{paddingTop: '9rem'}}>
+          <div style={{paddingLeft: '40rem'}}>
+            <h2>Round phase: {phase}</h2>
+          </div>
+
+          <div style={{paddingTop: '2rem'}}>
+            <h1>Fund phase 2:</h1>
+
+            <div>
+              <h3>- Project ID to fund:</h3>
+              <input type='text' onChange={event => setProjectId(event.target.value)}></input>
+            </div>
+            <div>
+              <h3>- Ether to use (in wei):</h3>
+              <input type='text' onChange={event => setAmountToFund(event.target.value)}></input>
+            </div>
+          </div>
         </div>
         
         <div style={{paddingTop: '5rem'}}>
@@ -262,7 +594,7 @@ function App()
               verification_level={VerificationLevel.Orb}
               handleVerify={verifyProof}
               onSuccess={onSuccess}>
-              {({ open }) => ( <button onClick={open}> Verify with World ID </button> )}
+              {({ open }) => ( <button onClick={open}> Verify with World ID to fund </button> )}
             </IDKitWidget>
           </div>
         </div>
