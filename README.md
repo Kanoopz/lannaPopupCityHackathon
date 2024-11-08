@@ -6,7 +6,17 @@ Karkinos ia an antiFarming funding mechanism that uses the future value accrued 
 The basic idea of the funding mechanism is that two entities swap their assets, one buying the liquidStaking and reestaking assets at their future value and use the arbitrage to fund public goods. After one year, this entity gets back the extra value that paid, making it a novel mechanism to fund projects without actually losing capital, making it a perfect model to attract new donors that contribute to build public goods. Another incentive for donors to participate and fund projects, besides not losing capital, is that they actually can earn yield by using the reestaked asset they got into an integrated defi protocol and also apply for points for airdrops.
 
 Basic example:
------
+<img width="1043" alt="image" src="https://github.com/user-attachments/assets/e49e7838-0cf0-4194-9cdd-2a9e15e5d71a">
+
+<img width="778" alt="image" src="https://github.com/user-attachments/assets/7f0e36af-43ea-4730-8fdc-cdc1d3fb1441">
+
+<img width="779" alt="image" src="https://github.com/user-attachments/assets/8574f712-f4b9-4c73-aed3-1de29c7502e1">
+
+<img width="779" alt="image" src="https://github.com/user-attachments/assets/b2a9cfeb-f4dc-44bc-b117-36212a4a3eb3">
+
+
+
+
 
 Other important feature for this funding mechanism is that by implementing worldID, only real people can participate, enhancing the funding of only those projects that are worth the donations. 
 
@@ -25,7 +35,8 @@ The process and phases for a successful round are:
 
 
 Architecture:
-----
+<img width="1043" alt="image" src="https://github.com/user-attachments/assets/8c442605-bb60-498b-997c-b0b780987448">
+
 
 Karkinos factory address: 0xa48BEf63E74A3995E52623f39437dd7eb219c66D.
 
