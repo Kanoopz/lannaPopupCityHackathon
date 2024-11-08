@@ -5,7 +5,14 @@ Karkinos ia an antiFarming funding mechanism that uses the future value accrued 
 
 The basic idea of the funding mechanism is that two entities swap their assets, one buying the liquidStaking and reestaking assets at their future value and use the arbitrage to fund public goods. After one year, this entity gets back the extra value that paid, making it a novel mechanism to fund projects without actually losing capital, making it a perfect model to attract new donors that contribute to build public goods. Another incentive for donors to participate and fund projects, besides not losing capital, is that they actually can earn yield by using the reestaked asset they got into an integrated defi protocol and also apply for points for airdrops.
 
-Basic example:
+Other important feature for this funding mechanism is that by implementing worldID, only real people can participate, enhancing the funding of only those projects that are worth the donations. 
+
+With these features implemented, it was possible to enable:
+- Incentivize donors to fund projects by giving them the funded amount they donated in one year + yield from a defi protocol & reestaked airdrop points.
+- Eliminates the need of funding matching mechanism that requires large amounts of money donated from protocols or foundation thanks to the instant staking funding mechanism, which returns funds to every donor at the end of the year.
+- More honest funding rounds thanks to worldID that let just real people to participate and fund limited amount of times in order to prevent farming and avoid multiple address by the same person.
+
+#Basic example:#
 
 
 <img width="768" alt="image" src="https://github.com/user-attachments/assets/f9f40dd0-545f-49ba-8b5d-9c6e3b3fc13d">
@@ -25,14 +32,7 @@ Basic example:
 
 
 
-
-
-Other important feature for this funding mechanism is that by implementing worldID, only real people can participate, enhancing the funding of only those projects that are worth the donations. 
-
-With these features implemented, it was possible to enable:
-- Incentivize donors to fund projects by giving them the funded amount they donated in one year + yield from a defi protocol & reestaked airdrop points.
-- Eliminates the need of funding matching mechanism that requires large amounts of money donated from protocols or foundation thanks to the instant staking funding mechanism, which returns funds to every donor at the end of the year.
-- More honest funding rounds thanks to worldID that let just real people to participate and fund limited amount of times in order to prevent farming and avoid multiple address by the same person.
+# Round process #
 
 The process and phases for a successful round are:
 - phase0: In this phase all projects are invited to apply to the round.
@@ -43,7 +43,7 @@ The process and phases for a successful round are:
     - Project admins can collect their funded amount.
 
 
-Architecture:
+#Architecture:#
 <img width="1043" alt="image" src="https://github.com/user-attachments/assets/8c442605-bb60-498b-997c-b0b780987448">
 
 
